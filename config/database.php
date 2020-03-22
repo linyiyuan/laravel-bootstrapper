@@ -46,9 +46,9 @@ return [
                 ]
             ],
             'port' => '3306',
-            'database' => 'tracking',
-            'username' => 'root',
-            'password' => '',
+            'database' => 'laravel-bootstrapper',
+            'username' => 'linyiyuan',
+            'password' => 'linyiyuan',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

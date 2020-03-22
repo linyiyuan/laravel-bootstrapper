@@ -15,6 +15,8 @@ return [
         'height' => 36,
         'quality' => 100,
         'math' => true,
+        'bgColor' => '#ecf2f4',
+
     ],
 
     'flat' => [

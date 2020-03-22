@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Services\TestService;
+use App\Models\User;
 
 class TestController extends CommonController
 {
-    public function test()
+    public function test(User $user)
     {
-        $payTypeConf = config('inc.payTypeConf');
-
-        dd($payTypeConf);
-
+        TestService::getInstance()->getOne(1);
     }
 }

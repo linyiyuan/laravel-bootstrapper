@@ -35,15 +35,15 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/functions.php",
-            "app/Helpers/config.php",
             "app/Helpers/log.php"
         ]
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },pers/functions.php",
+        "app/Helpers/config.php",
+        "app/Hel
     },
     "extra": {
         "laravel": {
