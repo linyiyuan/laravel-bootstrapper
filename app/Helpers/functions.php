@@ -1,12 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: moTzxx
- * Date: 2017/12/28
- * Time: 17:47
- */
-
-/**
  * @Author YiYuan-LIn
  * @Date: 2019/4/24
  * @param $code
