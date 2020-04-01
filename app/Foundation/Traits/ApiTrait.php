@@ -1,10 +1,9 @@
 <?php
 namespace App\Foundation\Traits;
 
-use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use Validator;
 
 /**
  * API接口基类，负责数据返回处理
@@ -31,9 +30,9 @@ trait ApiTrait
         if (request()->input('sql_debug', false) && appEnv('APP_DEBUG', false)) {
             //相同条件下在AppServiceProvider中通过\DB::enableQueryLog()开启了SQL记录
             $return['sql'] = [
-                \DB::getQueryLog()
+                DB::getQueryLog()
             ];
-            \DB::disableQueryLog();
+            DB::disableQueryLog();
         }
 
         return $return;
@@ -64,7 +63,7 @@ trait ApiTrait
      */
     protected function success($data = [])
     {
-        return \Response::json($this->formatResponse($data));
+        return Response()->json($this->formatResponse($data));
     }
 
     /**
@@ -76,6 +75,6 @@ trait ApiTrait
      */
     protected function error($statusCode, $message)
     {
-        return \Response::json($this->formatResponse([], $statusCode, $message));
+        return Response()->json($this->formatResponse([], $statusCode, $message));
     }
 }
