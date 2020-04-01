@@ -3,6 +3,7 @@ namespace App\Foundation\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -53,6 +54,41 @@ trait ApiTrait
         });
 
         return $message;
+    }
+
+    /**
+     * 验证参数 ，如果错误则抛出异常
+     *
+     * @param array $data
+     * @param array $rules
+     * @param array $message
+     * @throws \Exception
+     */
+    public function verifyParams($data, $rules, $message)
+    {
+        $validator = Validator::make($data, $rules, $message);
+        if ($validator->fails()) {
+            throw new \Exception($validator->messages()->first(), 400);
+        }
+    }
+
+    /**
+     * 处理捕获异常返回
+     *
+     * @param \Exception $e
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function errorExp(\Exception $e)
+    {
+        if (!$e->getCode()) {
+            $code = 500;
+            $message = '服务器错误 ' . $e->getMessage() . ':: FILE:' . $e->getFile() . ':: LINE: ' . $e->getLine();
+        } else {
+            $code = $e->getCode();
+            $message = $e->getMessage();
+        }
+
+        return $this->error($code, $message);
     }
 
     /**

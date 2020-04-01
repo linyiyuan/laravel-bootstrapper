@@ -54,25 +54,25 @@ class Handler extends ExceptionHandler
     {
         // 参数验证错误的异常，我们需要返回 400 的 http code 和一句错误信息
         if ($exception instanceof ValidationException) {
-            return response(['errorCode' => 400, 'data' => [], 'message' => array_first(array_collapse($exception->errors()))]);
+            return response(['statusCode' => 400, 'message' => ['info' => array_first(array_collapse($exception->errors()))], 'data' => [],]);
 
         }
         // 用户认证的异常，我们需要返回 401 的 http code 和错误信息
         if ($exception instanceof UnauthorizedHttpException) {
-            return response(['errorCode' => 401, 'data' => ['message' => '登录已过期，请重新登录']]);
+            return response(['statusCode' => 401, 'message' => ['info' => '登录已过期，请重新登录']]);
         }
 
         //如果不被允许的路由
         if ($exception instanceof MethodNotAllowedHttpException || $exception instanceof NotFoundHttpException) {
 //            if (!($request->ajax() || $request->wantsJson())) {
-                return response(['errorCode' => 404, 'message' => '请求接口不存在', 'data' => []]);
+                return response(['statusCode' => 404, 'message' => ['info' => '请求接口不存在'], 'data' => []]);
 //            }
         }
 
         //判断是否存在异常
         if ($exception->getCode() == 0) {
             $errTemplate = "EXCEPTION::". $exception->getMessage(). "\r\nERRCODE::". $exception->getCode(). "\r\nFILE::". $exception->getFile(). "::LINE::". $exception->getLine();
-            return response(['errorCode' => 500, 'data' => ['message' => $errTemplate]]);
+            return response(['statusCode' => 500, 'message' => ['info' => $errTemplate], 'data' => []]);
         }
         return parent::render($request, $exception);
     }

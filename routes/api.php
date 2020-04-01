@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['namespace' => 'Api'], function(){
 
-        route::any('test/{user}', 'TestController@test');//测试接口
+        route::any('test', 'TestController@test');//测试接口
 
 });
