@@ -9,6 +9,11 @@ class TestController extends CommonController
 {
     public function test(User $user)
     {
-        TestService::getInstance()->getOne(1);
+        $new = new TestService(User::class);
+
+
+
+
+
     }
 }
