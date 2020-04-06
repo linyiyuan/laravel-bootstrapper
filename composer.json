@@ -37,7 +37,8 @@
         "files": [
             "app/Foundation/Helpers/log.php",
             "app/Foundation/Helpers/config.php",
-            "app/Foundation/Helpers/functions.php"
+            "app/Foundation/Helpers/functions.php",
+            "app/Foundation/Helpers/math.php"
         ]
     },
     "autoload-dev": {
