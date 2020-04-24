@@ -4,9 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class User
+ * @package App\Models
+ * @Author YiYuan-LIn
+ * @Date: 2020/4/24
+ */
 class User extends Model
 {
     protected $table = 'user';
+
+    public $timestamps = false;
 
     public static function getOneById($id)
     {
