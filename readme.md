@@ -15,7 +15,7 @@
 ### 2.2 安装
 #### 2.2.1 基本要求
 - 服务器要求：
-	- PHP >= 7.1.3git
+	- PHP >= 7.1.3
 	  NPM >= 3.5.0
 	- OpenSSL PHP扩展
 	- PDO PHP扩展，注意需要php_mysql

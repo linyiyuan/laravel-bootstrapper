@@ -11,13 +11,13 @@
 |
 */
 // ---------- 初始路由
-    Route::view('/','welcome');
+//    Route::view('/','welcome');
 
 
 // ---------- 后台路由
 //    Route::view('/admin/{name1?}/{name2?}', 'admin.admin');
 
 // ---------- 前台路由
-//    Route::view('/', function(){
-//        return 1;
-//    });
+    Route::view('/', function(){
+       return 1;
+    });
