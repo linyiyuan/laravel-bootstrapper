@@ -8,7 +8,7 @@ namespace App\Foundation\Traits;
  * @Author YiYuan-LIn
  * @Date: 2020/9/14
  */
-class SingletonTrait
+trait SingletonTrait
 {
     /**
      * 私有属性，用于保存实例

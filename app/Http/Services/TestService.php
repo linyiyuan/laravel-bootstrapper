@@ -1,12 +1,8 @@
 <?php
 namespace App\Http\Services;
 
+use App\Foundation\Traits\SingletonTrait;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Redis;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * Class BaseService
@@ -17,6 +13,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
  */
 class TestService extends BaseService
 {
+    use SingletonTrait;
+
     protected $params = [];
 
     public function __construct(User $user)

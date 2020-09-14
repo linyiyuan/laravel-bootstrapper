@@ -28,23 +28,6 @@ abstract class  BaseService
     }
 
     /**
-     * 单例对象
-     *  修改为多单例子类继承方式
-     * @return mixed
-     */
-    public static function getInstance() {
-        $className = get_called_class();
-        if (!isset(static::$_instance[$className]) || !static::$_instance[$className]) static::$_instance[$className] = new static();
-        return static::$_instance[$className];
-    }
-
-    /**
-     * 禁用克隆
-     * @author Xiaozhi.tan
-     */
-    protected function __clone() { }
-
-    /**
      * 抛出异常
      * @author YiYuan Lin
      * @param $message
