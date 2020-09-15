@@ -17,15 +17,9 @@ use App\Http\Controllers\Api\ServerController;
  */
 abstract class  BaseService
 {
-    protected static $_instance = [];
-
     protected $params = [];
 
     protected $md5 = [];
-
-    protected function __construct() {
-
-    }
 
     /**
      * 抛出异常
