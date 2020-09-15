@@ -9,8 +9,6 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-
-
 class Handler extends ExceptionHandler
 {
     /**
@@ -57,16 +55,10 @@ class Handler extends ExceptionHandler
             return response(['statusCode' => 400, 'message' => ['info' => array_first(array_collapse($exception->errors()))], 'data' => [],]);
 
         }
-        // 用户认证的异常，我们需要返回 401 的 http code 和错误信息
-        if ($exception instanceof UnauthorizedHttpException) {
-            return response(['statusCode' => 401, 'message' => ['info' => '登录已过期，请重新登录']]);
-        }
 
         //如果不被允许的路由
         if ($exception instanceof MethodNotAllowedHttpException || $exception instanceof NotFoundHttpException) {
-//            if (!($request->ajax() || $request->wantsJson())) {
                 return response(['statusCode' => 404, 'message' => ['info' => '请求接口不存在'], 'data' => []]);
-//            }
         }
 
         //判断是否存在异常
