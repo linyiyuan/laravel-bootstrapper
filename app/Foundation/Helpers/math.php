@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * 公共数学函数
+ * create by YiYuan-Lin
+ */
+
 if (!function_exists('base62_encode')) {
     /**
      * Convert a 10 base numeric string to a 62 base string

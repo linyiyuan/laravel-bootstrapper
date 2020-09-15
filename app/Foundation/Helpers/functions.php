@@ -1,9 +1,9 @@
 <?php
+
 /**
  * 公共函数
- * create by linyiyuan
+ * create by YiYuan-Lin
  */
-
 
 if (!function_exists('checkFileExists')) {
     /**

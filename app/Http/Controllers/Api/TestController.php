@@ -9,7 +9,7 @@ use App\Http\Services\TestService;
  * 测试控制器
  * Class TestController
  * @package App\Http\Controllers\Api
- * @Author YiYuan-LIn
+ * @Author YiYuan-Lin
  * @Date: 2020/9/15
  */
 class TestController extends Controller
