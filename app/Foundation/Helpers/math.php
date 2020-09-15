@@ -1,8 +1,7 @@
 <?php
-
 /**
- * 公共数学函数
- * create by YiYuan-Lin
+ * 数学相关函数
+ * create by linyiyuan
  */
 
 if (!function_exists('base62_encode')) {
@@ -60,9 +59,6 @@ if (!function_exists('to_base')) {
 if (!function_exists('to_base10')) {
     /**
      * Convert a string from a given base to base 10.
-     *
-     * @param  string $value string from given base
-     * @param  int $b base, max is 62
      * @return string
      */
     function to_base10($value, $b = 62)
@@ -78,3 +74,82 @@ if (!function_exists('to_base10')) {
         return $result;
     }
 }
+
+if (!function_exists('md5_rand')) {
+    /**
+     * Convert a string from a given base to base 10.
+     *
+     * @return string
+     */
+    function md5_rand()
+    {
+        $time = time();
+        $numRand = getRandStr(10);
+
+        return strtoupper(md5($time . $numRand));
+    }
+}
+
+if (!function_exists('code62')) {
+    /**
+     * 生成短网址
+     *
+     * @param $x
+     * @return string
+     */
+    function code62($x)
+    {
+        $show = '';
+        while($x > 0){
+            $s = $x % 62;
+            if ($s > 35){
+                $s = chr($s + 61);
+            }elseif($s > 9 && $s <= 35){
+                $s = chr($s + 55);
+            }
+            $show .= $s;
+            $x = floor($x / 62);
+        }
+        return $show;
+    }
+}
+
+if (!function_exists('short_url')) {
+    /**
+     * 生成短链
+     *
+     * @param $url
+     * @return string
+     */
+    function short_url($url)
+    {
+        $url = crc32($url);
+        $result = sprintf("%u",$url);
+
+        return code62($result);
+    }
+}
+
+if (!function_exists('calc_float')) {
+    function calc_float($type, $m, $n, $scale = 2) {
+        $result = '';
+
+        switch ($type) {
+            case 'add':
+                $result = bcadd($m, $n, $scale);
+                break;
+            case 'sub':
+                $result = bcsub($m, $n, $scale);
+                break;
+            case 'mul':
+                $result = bcmul($m, $n, $scale);
+                break;
+            case 'div':
+                $result = bcdiv($m, $n, $scale);
+                break;
+        }
+
+        return $result;
+    }
+}
+
