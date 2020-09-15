@@ -1,7 +1,8 @@
 <?php
+
 /**
  * 数学相关函数
- * create by linyiyuan
+ * create by YiYuan-Lin
  */
 
 if (!function_exists('base62_encode')) {
